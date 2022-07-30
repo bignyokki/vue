@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<title>はじめてのVue.js</title>
+<script src="https://unpkg.com/vue@2.5.17"></script>
+
+<div id="app">
+  <p>
+    {{ items[0].name }}
+  </p>
+</div>
+
+<script src="app.js">
+  // ロードされ、Vueがグローバル変数として定義されているか確認
+  // 「console.assert」:falseになる場合、コンソールにメッセージを表示する
+  // 「typeof」:値のデータ型を表す文字列を返す演算子
+  // 「undefined」:データ型。宣言されているが、値が代入されていない変数はundefined型になる。
+  console.assert(typeof Vue !== 'undefined');
+</script>
