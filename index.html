@@ -3,6 +3,7 @@
 <script src="https://unpkg.com/vue@2.5.17"></script>
 
 <div id="app">
+  <!-- 1000円以上になるまで、赤く表示する -->
   <p>{{ items[0].name }}: {{ items[0].price }} x {{ items[0].quantity }}</p>
   <p>小計: {{ totalPrice | numberWithDelimiter }}円</p>
   <p>合計(税込): {{ totalPriceWithTax | numberWithDelimiter }}円</p>
