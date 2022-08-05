@@ -4,8 +4,31 @@
 
 <div id="app">
 
+  <ul>
+    <li v-for="item in items" v-bind:key="item.name">
+      <!-- イベントハンドリング: 「v-on: イベント名="式として実行したい属性値"」
+           v-onでイベントが発生した時に属性値で指定した式を評価する
+           v-on → htmlでイベントが発生した時、Vueインスタンスの値を変更する 単方向
+           v-bind → Vueインスタンスのdataの値が変更されるとhtmlのvalueも変更される 単方向
+           v-model = v-on + v-bind ビュー(DOM)で変更があったときに、その値をVueインスタンスのデータとして更新する
+                                   逆にVueインスタンスのデータに変更があった場合はビューを再レンダリングする -->
+      <!-- {{ item.name }}の個数: <input type="number" v-on:input="item.quantity = $event.target.value" v-bind:value="item.quantity" min="0"> -->
+      <!-- 上をv-modelに書き換え -->
+      {{ item.name }}の個数: <input type="number" v-model="item.quantity" min="0">
+    </li>
+  </ul>
+
   <!-- 1000円以上になるまで、赤く表示する -->
   <div :style="errorMessageStyle">
+
+    <ul>
+      <!-- 各商品の単価と購入個数のリストを表示する -->
+      <!-- リストレンダリング: v-for="要素 in 配列" -->
+      <!-- v-bind:key=〜で生成時に一意なキーを与える(特に利用することはないが、Vue.jsのパフォーマンス等の理由で必須) -->
+      <li v-for="item in items" v-bind:key="item.name">
+        {{ item.name }}: {{ item.price }} x {{ item.quantity }} = {{ item.price * item.quantity | numberWithDelimiter}}円
+      </li>
+    </ul>
 
     <p>{{ items[0].name }}: {{ items[0].price }} x {{ items[0].quantity }}</p>
     <p>小計: {{ totalPrice | numberWithDelimiter }}円</p>
