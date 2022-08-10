@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<title>Component01</title>
+<script src="https://unpkg.com/vue@2.5.17"></script>
+
+<ul id="example">
+  <!-- カスタムタグでコンポーネントをカスタムタグで表現できる -->
+  <list-item></list-item>
+</ul>
+
+<script>
+
+  // コンポーネント
+  // Vue.component(第一引数:コンポーネント名, 第二引数:内容)
+  Vue.component('list-item',{
+    // テンプレート構文も使用できる「{{ }}」
+    template: '<li>foo {{ contents }} </li>',
+    data: function () {
+      return { contents: 'bar' }
+    }
+  })
+
+  // ルートVueインスタンスの作成
+  new Vue({ el: '#example' })
+
+</script>
