@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<title>Component03</title>
+<script src="https://unpkg.com/vue@2.5.17"></script>
+
+<div id="main">
+</div>
+
+<script>
+
+  // コンストラクタベースの定義
+  // コンストラクタ：クラスをnewした時に実行される関数
+  
+  // Vue.extend():Vueコンストラクベースのサブクラスを作成する
+  var FruitsListTitle = Vue.extend({
+    template: '<h1>フルーツ一覧</h1>'
+  })
+
+  // $mount関数で特定の要素にマウントする
+  new FruitsListTitle().$mount('#main')
+
+  </script>
