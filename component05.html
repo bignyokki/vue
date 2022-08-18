@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<title>Component04</title>
+<script src="https://unpkg.com/vue@2.5.17"></script>
+
+<div id="fruits-list">
+
+  <fruits-list-title></fruits-list-title>
+
+</div>
+
+<!-- HTMLファイルの中にtext/x-templateをtypeとして定義したscript要素を定義
+     その中にテンプレートのHTML要素を記述
+     HTML側に分割できるため複雑なテンプレートでも読みやすくなる -->
+<script type="text/x-template" id="fruits-list-title">
+  <h1>フルーツ一覧</h1>
+</script>
+
+<script src="component05.js"></script>
