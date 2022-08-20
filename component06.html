@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<title>Component06</title>
+<script src="https://unpkg.com/vue@2.5.17"></script>
+
+<div id="app">
+
+  <input-date-with-today></input-date-with-today>
+
+</div>
+
+<script>
+
+  Vue.component('input-date-with-today', {
+    render: function(createElement) {
+      // createElement(
+      //   第一引数：HTMLタグ名,
+      //   第二引数：データーオブジェクト
+      // )
+      return createElement(
+        'input',
+        {
+          // attrs:HTMLの属性
+          attrs: {
+            type: 'date',
+            // Date():現在の日付と時刻の文字列表現を返す（Sun Dec 17 1995 03:24:00 GMT...）
+            // toISOString():ISO 形式の文字列を返す（2011-10-05T14:48:00.000Z）
+            // substring(開始位置,終了位置):文字列を切り取る(2011-10-05)
+            value: new Date().toISOString().substring(0,10)
+          }
+        }
+      )
+    }
+  })
+
+  new Vue({el: '#app'})
+</script>
