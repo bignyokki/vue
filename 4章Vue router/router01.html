@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <title>SPAのサンプルアプリケーション01</title>
+    <script src="https://unpkg.com/vue@2.5.17"></script>
+    <script src="https://unpkg.com/vue-router@3.0.1"></script>
+  </head>
+
+  <body>
+
+    <div id="app">
+
+      <!-- リンク先を'to'プロパティで指定する -->
+      <!-- デフォルトで<router-link>は'<a>'タグとしてレンダリングされます -->
+      <router-link to="/top">トップページ</router-link>
+      <router-link to="/users">ユーザー一覧ページ</router-link>
+      <!-- ルート内でマッピングしたコンポーネントが<router-view>の部分にレンダリングされます -->
+      <router-view></router-view>
+
+    </div>
+
+    <script>
+
+      // ルートオプションを渡してルーターインスタンスを生成する
+      var router = new VueRouter({
+        // 各ルートにコンポーネントをマッピングします
+        // コンポーネントはVue.extend()によって作られたコンポーネントコンストラクタでも
+        // コンポーネントオプションのオブジェクトでも構いません
+        routes: [
+          {
+            path: '/top',
+            component: {
+              template: '<div>トップページです</div>'
+            }
+          },
+          {
+            path: '/users',
+            component: {
+              template: '<div>ユーザー一覧ページです</div>'
+            }
+          }
+        ]
+      })
+
+      // ルーターのインスタンスをrootとなるVueインスタンスに渡します
+      var app = new Vue({
+        router: router
+      }).$mount('#app')
+
+    </script>
+
+  </body>
+  
+</html>
